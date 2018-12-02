@@ -1,5 +1,6 @@
 package com.example.micha.finalprojectcs125;
 
+import android.app.WallpaperManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import java.io.IOException;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,13 +52,18 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
+        ImageView test = (ImageView)findViewById(R.id.action_settings);
+        test.setImageResource(R.drawable.kitten);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                WallpaperManager myWallpaperManager = WallpaperManager.getInstance(getApplicationContext());
+                try {
+                    myWallpaperManager.setResource(R.drawable.kitten);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -82,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Action listener of sorts I guess
+     */
+    public void sendMessage(View view) {
+        System.out.println("SuccessfulClick");
     }
 
     /**
