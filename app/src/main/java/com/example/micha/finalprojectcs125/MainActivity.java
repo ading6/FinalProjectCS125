@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        ImageView test = (ImageView)findViewById(R.id.action_settings);
+        /*ImageView test = (ImageView)findViewById(R.id.action_settings);
         test.setImageResource(R.drawable.kitten);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -60,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 WallpaperManager myWallpaperManager = WallpaperManager.getInstance(getApplicationContext());
                 try {
-                    myWallpaperManager.setResource(R.drawable.kitten);
+                    myWallpaperManager.setResource(R.raw.kitten);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
 
     }
 
