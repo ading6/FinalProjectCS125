@@ -16,10 +16,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,21 +56,6 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        /*ImageView test = (ImageView)findViewById(R.id.action_settings);
-        test.setImageResource(R.drawable.kitten);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                WallpaperManager myWallpaperManager = WallpaperManager.getInstance(getApplicationContext());
-                try {
-                    myWallpaperManager.setResource(R.raw.kitten);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });*/
-
     }
 
 
@@ -95,8 +84,23 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Action listener of sorts I guess
      */
-    public void sendMessage(View view) {
+    public void sendMessageCat(View view) {
         System.out.println("SuccessfulClick");
+        WallpaperManager myWallPaper = WallpaperManager.getInstance(getApplicationContext());
+        try{
+            myWallPaper.setResource(R.raw.kitten);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void sendMessageDog(View view) {
+        System.out.println("SuccessfulClick");
+        WallpaperManager myWallPaper = WallpaperManager.getInstance(getApplicationContext());
+        try{
+            myWallPaper.setResource(R.raw.puppy);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
